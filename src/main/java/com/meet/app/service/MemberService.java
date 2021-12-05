@@ -5,10 +5,13 @@ import com.meet.app.entity.Member;
 import com.meet.app.entity.School;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MemberService {
 
     void register(MemberDTO memberDTO);
+
+    Member login(Map<String, String> member);
 
     List<MemberDTO> getList();
 
