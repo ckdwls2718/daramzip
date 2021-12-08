@@ -7,10 +7,8 @@ import com.meet.app.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -39,5 +37,12 @@ public class MemberController {
         Member login = memberService.login(member);
 
         return jwtTokenProvider.createToken(login.getId(), login.getRoles());
+    }
+
+    @GetMapping("/user/who")
+    public MemberDTO who(@RequestHeader("JWT-TOKEN") String token) {
+        String memberPk = jwtTokenProvider.getMemberPk(token);
+
+        return memberService.getMember(memberPk);
     }
 }

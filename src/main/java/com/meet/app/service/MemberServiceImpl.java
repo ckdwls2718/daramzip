@@ -15,7 +15,7 @@ import java.util.*;
 @Service
 @Log4j2
 @RequiredArgsConstructor
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
@@ -81,10 +81,12 @@ public class MemberServiceImpl implements MemberService{
     @Override
     public MemberDTO getMember(String id) {
 
+//        Member member = memberRepository.findById(id).get();
         Member member = memberRepository.findById(id).get();
 
         MemberDTO memberDTO = entityToDTO(member);
 
         return memberDTO;
     }
+
 }

@@ -3,6 +3,8 @@ package com.meet.app.service;
 import com.meet.app.dto.MemberDTO;
 import com.meet.app.entity.Member;
 import com.meet.app.entity.School;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 import java.util.Map;

@@ -35,7 +35,6 @@ public class Member implements UserDetails {
     private String stuNum;
 
     @NotNull
-    @Column(length = 24)
     private String password;
 
     @NotNull
