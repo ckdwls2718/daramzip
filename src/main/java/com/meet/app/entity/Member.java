@@ -70,6 +70,15 @@ public class Member implements UserDetails {
                 .collect(Collectors.toList());
     }
 
+    public void modifyUser(String nickname, String password) {
+        this.nickname = nickname;
+        this.password = password;
+    }
+
+    public void deleteUser() {
+        this.isDel = true;
+    }
+
     @Override
     public String getUsername() {
         return id;

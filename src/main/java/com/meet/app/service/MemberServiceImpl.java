@@ -26,8 +26,7 @@ public class MemberServiceImpl implements MemberService {
 
         log.info("memberDTO : " + memberDTO);
 
-        String password = memberDTO.getPassword();
-        String encodePassword = passwordEncoder.encode(password);
+        String encodePassword = passwordEncoder.encode(memberDTO.getPassword());
 
         School school = School.builder().id(memberDTO.getSchoolID()).build();
 
@@ -89,4 +88,20 @@ public class MemberServiceImpl implements MemberService {
         return memberDTO;
     }
 
+    // 회원 정보 수정
+    @Override
+    public void modifyMember(MemberDTO memberDTO) {
+        Member member = memberRepository.findById(memberDTO.getMemberID()).get();
+
+        member.modifyUser(memberDTO.getNickname(), passwordEncoder.encode(memberDTO.getPassword()));
+    }
+
+    //회원 삭제
+    @Override
+    public void deleteMember(MemberDTO memberDTO) {
+        Member member = memberRepository.findById(memberDTO.getMemberID()).get();
+
+        member.deleteUser();
+        log.info("delete member"+ member.getId());
+    }
 }

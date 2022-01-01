@@ -19,6 +19,10 @@ public interface MemberService {
 
     MemberDTO getMember(String id);
 
+    void modifyMember(MemberDTO memberDTO);
+
+    void deleteMember(MemberDTO memberDTO);
+
     default Member dtoToEntity(MemberDTO memberDTO){
 
         School school = School.builder().id(memberDTO.getSchoolID()).build();
