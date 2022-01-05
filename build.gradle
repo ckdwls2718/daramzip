@@ -30,7 +30,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-	testCompileClasspath 'org.springframework.boot:spring-boot-starter-test' //test 오류나서 추가함
+	testCompileClasspath 'org.springframework.boot:spring-boot-starter-test' //test 오류나서 추가
 
 //	implementation group: 'net.coobird', name: 'thumbnailator', version: '0.4.8'
 //	implementation group: 'org.springframework', name: 'spring-mock', version: '2.0.8'
